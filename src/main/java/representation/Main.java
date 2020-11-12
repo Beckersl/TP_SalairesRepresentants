@@ -3,6 +3,7 @@ package representation;
 public class Main {
 
     public static void main(String[] args) {
+
         ZoneGeographique occitanie = new ZoneGeographique(1, "Occitanie");
         occitanie.setIndemniteRepas(200.00f);
 

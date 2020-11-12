@@ -82,6 +82,63 @@ public class TestRepresentant {
 		}
 
 	}
-	
+        @Test
+        
+	public void numeroIsCorrectlyInitialized() {
+		// Paramètres : message si erreur, valeur attendue, valeur réelle
+		assertEquals(36, r.getNumero(), "Initialisation incorrecte du prix");
+	}
+        @Test
+
+	public void nomIsCorrectlyInitialized() {
+		// Paramètres : message si erreur, valeur attendue, valeur réelle
+		assertEquals("Bastide", r.getNom(), "Initialisation incorrecte du prix");
+	}
+         @Test
+
+	public void prenomIsCorrectlyInitialized() {
+		// Paramètres : message si erreur, valeur attendue, valeur réelle
+		assertEquals("Rémi", r.getPrenom(), "Initialisation incorrecte du prix");
+	}
+        @Test
+
+	public void adresseIsCorrectlyInitialized() {
+		// Paramètres : message si erreur, valeur attendue, valeur réelle
+		r.setAdresse("2 rue");
+		assertEquals("2 rue", r.getAdresse(), "Initialisation incorrecte du prix");
+	}
+        
+        
+         @Test
+        public void salaireIsCorrectlySet() {
+		// Paramètres : message si erreur, valeur attendue, valeur réelle
+                r.setSalaireFixe(10f);
+		assertEquals(10f, r.getSalaireFixe(), "Initialisation incorrecte du prix");
+                
+	}
+                 @Test
+        public void secteurIsCorrectlySet() {
+		// Paramètres : message si erreur, valeur attendue, valeur réelle
+                ZoneGeographique Paca = new ZoneGeographique(2,"Paca");
+                r.setSecteur(Paca);
+		assertEquals(Paca, r.getSecteur(), "Initialisation incorrecte du prix");
+                
+	}
+        @Test
+	public void testForExceptionV1() {
+		try {
+			r.enregistrerCA(13, FIXE_BASTIDE); // Cette ligne doit lever une exception
+			// Si on arrive ici, c'est qu'on n'a pas eu d'exception -> le test doit échouer
+			fail("Cet appel doit lever une exception");
+		} catch (IllegalArgumentException e) {
+			// Si on arrive ici c'est normal, le test doit réussir
+		}
+        }
+        @Test
+
+	public void toStringIsCorrect() {
+		// Paramètres : message si erreur, valeur attendue, valeur réelle
+		assertEquals("Representant{numero=36, nom=Bastide, prenom=Rémi}", r.toString(), "Initialisation incorrecte du prix");
+	}
 	
 }
